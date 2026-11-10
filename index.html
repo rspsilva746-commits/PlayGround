@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101513" />
+  <title>Zona Morta — Última Extração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="scene" aria-label="Jogo 3D de sobrevivência zumbi"></canvas>
+    <div class="film-grain"></div>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">Z</span><span>ZONA<span class="brand-muted">MORTA</span></span></div>
+      <div class="mission"><span class="live-dot"></span><span id="mission-label">SINAL DE EXTRAÇÃO</span><strong id="timer">01:30</strong></div>
+      <button class="sound-btn" id="sound-btn" aria-label="Alternar som">♫ <span>SOM</span></button>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="status-card"><div class="eyebrow">SOBREVIVENTE <span class="status-light"></span></div><div class="health-row"><span class="health-icon">✚</span><div class="bar"><i id="health-fill"></i></div><b id="health-text">100</b></div></div>
+      <div class="wave-card"><span class="eyebrow">AMEAÇA ATUAL</span><strong>ONDA <i id="wave-number">01</i></strong><span class="kills"><b id="kill-count">00</b> ELIMINADOS</span></div>
+      <div class="ammo-card"><span class="eyebrow">MUNIÇÃO · 9MM</span><div><strong id="ammo-count">12</strong><span class="ammo-divider">/</span><span id="reserve-count">48</span></div><span class="weapon-name">M1911 <i>•</i> SEMIAUTO</span></div>
+    </section>
+    <div class="crosshair" id="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+    <div class="hit-marker" id="hit-marker">✕</div>
+    <div class="toast" id="toast">RECARREGANDO</div>
+    <div class="hint" id="hint"><kbd>WASD</kbd> MOVER <kbd>MOUSE</kbd> MIRAR <kbd>ESPAÇO</kbd> ATIRAR</div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joystick" id="joystick"><div class="joy-ring"></div><div class="joy-knob" id="joy-knob"></div><span class="joy-label">MOVER</span></div>
+      <button class="reload-button" id="reload-button">↻<small>RECARGA</small></button>
+      <button class="fire-button" id="fire-button"><span>✦</span><small>ATIRAR</small></button>
+      <div class="look-label">ARRASTE PARA MIRAR</div>
+    </div>
+    <section class="overlay" id="start-screen">
+      <div class="intro-kicker"><span></span> RELATÓRIO DE CAMPO · 06:42 AM</div>
+      <h1>A CIDADE<br><em>CAIU.</em></h1>
+      <p class="intro-copy">O último comboio parte em 90 segundos.<br>Abra caminho até a zona de extração.</p>
+      <button class="primary-button" id="start-button"><span>INICIAR SOBREVIVÊNCIA</span><b>↗</b></button>
+      <div class="intro-foot"><span>● OPERAÇÃO: ÚLTIMA LUZ</span><span>SETOR 07 — QUARENTENA</span></div>
+      <div class="control-note"><span>⌨</span> WASD PARA MOVER <i>·</i> MOUSE PARA MIRAR <i>·</i> CLIQUE PARA ATIRAR</div>
+    </section>
+    <section class="overlay result-overlay hidden" id="result-screen">
+      <div class="intro-kicker"><span></span> TRANSMISSÃO RECEBIDA</div>
+      <h1 id="result-title">VOCÊ<br><em>SOBREVIVEU.</em></h1>
+      <p class="intro-copy" id="result-copy">A extração chegou. Você conseguiu.</p>
+      <div class="result-stats"><div><b id="final-kills">00</b><span>ELIMINADOS</span></div><div><b id="final-wave">01</b><span>ONDA ALCANÇADA</span></div></div>
+      <button class="primary-button" id="restart-button"><span>JOGAR NOVAMENTE</span><b>↗</b></button>
+      <div class="intro-foot"><span>● OPERAÇÃO: ÚLTIMA LUZ</span><span>SETOR 07 — QUARENTENA</span></div>
+    </section>
+    <div class="damage-flash" id="damage-flash"></div>
+    <div class="mobile-rotate">GIRE O DISPOSITIVO PARA UMA VISÃO MELHOR <span>↻</span></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
